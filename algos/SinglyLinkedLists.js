@@ -61,7 +61,17 @@ class SinglyLinkedList {
      * @returns {SinglyLinkedList} This list.
      */
     insertAtBack(data) {
-        //your code here
+        let newEnd = new ListNode(data);
+        if (this.isEmpty()) {
+            this.head = newEnd;
+            return this;
+        }
+        let runner = this.head;
+        while (runner.next !== null) {
+            runner = runner.next;
+        }
+        runner.next = newEnd;
+        return this;
     }
 
     /**
@@ -75,7 +85,15 @@ class SinglyLinkedList {
      * @returns {SinglyLinkedList} This list.
      */
     insertAtBackRecursive(data, runner = this.head) {
-        //your code here
+        if (this.head === null) {
+            this.head = new ListNode(data);
+            return this;
+        }
+        if (runner.next === null) {
+            runner.next = new ListNode(data);
+            return this;
+        }
+        return this.insertAtBackRecursive(data, runner.next);
     }
 
     /**
