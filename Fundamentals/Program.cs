@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Reflection.Metadata;
+
 Console.WriteLine("Hello, World!");
 
 int Age = 36;
@@ -57,3 +59,25 @@ foreach (KeyValuePair<string,int> entry in PetAges)
     Console.WriteLine($"The key is {entry.Key} the value is {entry.Value} ");
     
 }
+
+static void SayHello()
+{
+    Console.WriteLine("Hello how are you doing today?");
+}
+
+SayHello();
+
+static int MathingTheMath(int numOne, int numTwo=8)
+{
+    return numOne * numTwo;
+}
+
+// static int MathingTheMath(int numOne)
+// {
+//     return numOne * 8;
+// }
+
+int Product = MathingTheMath(4,8);
+Console.WriteLine(Product);
+
+
