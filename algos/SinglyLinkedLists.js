@@ -127,6 +127,39 @@ class SinglyLinkedList {
 
         return arr;
     }
+
+    /**
+     * Creates a new node with the given data and inserts that node at the front
+     * of this list.
+     * - Time: (?).
+     * - Space: (?).
+     * @param {any} data The data for the new node.
+     * @returns {SinglyLinkedList} This list.
+     */
+    insertAtFront(data) {
+        //your code here
+    }
+
+    /**
+     * Removes the first node of this list.
+     * - Time: (?).
+     * - Space: (?).
+     * @returns {any} The data from the removed node or null if no first node.
+     */
+    removeHead() {
+        //Your code here
+    }
+
+    // EXTRA
+    /**
+     * Calculates the average of this list. Assume all nodes hold a numerical value.
+     * - Time: (?).
+     * - Space: (?).
+     * @returns {number|null} The average of the node's data or null if empty.
+     */
+    average() {
+        //your code here
+    }
 }
 
 /******************************************************************* 
@@ -136,25 +169,16 @@ after completing it, uncomment the code.
 */
 const emptyList = new SinglyLinkedList();
 
-// const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
-// const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
-// const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
-// const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
-// const unorderedList = new SinglyLinkedList().insertAtBackMany([
-// -5, -10, 4, -3, 6, 1, -7, -2,
-// ]);
+let testList = new SinglyLinkedList();
+testList.insertAtBackMany([10, 8, 12, 5, 15]);
 
-/* node 4 connects to node 1, back to head */
-// const perfectLoopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
-// perfectLoopList.head.next.next.next = perfectLoopList.head;
+// // insert at front test
+// testList.insertAtFront(999);
+// console.log(testList.toArr());
 
-/* node 4 connects to node 2 */
-// const loopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
-// loopList.head.next.next.next = loopList.head.next;
+// // remove head test
+// testList.removeHead();
+// console.log(testList.toArr());
 
-// const sortedDupeList = new SinglyLinkedList().insertAtBackMany([
-//     1, 1, 1, 2, 3, 3, 4, 5, 5,
-// ]);
-
-// Print your list like so:
-// console.log(firstThreeList.toArr());
+// // average test
+// console.log("Average: ", testList.average());
