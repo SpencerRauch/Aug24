@@ -7,7 +7,7 @@ Ostrich Ozzy = new("Ozzy");
 Duck Donald = new("Donald");
 
 List<Bird> AllBirds = [RedTail,Ozzy,Donald];
-
+List<IFly> Flyers = [RedTail, Donald];
 foreach (Bird bird in AllBirds)
 {
     if (bird is IFly f)
