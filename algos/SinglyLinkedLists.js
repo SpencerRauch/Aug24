@@ -237,19 +237,46 @@ class SinglyLinkedList {
         runner.next = null;
         return removedData;
     }
+    
+    /**
+    * Retrieves the data of the second to last node in this list.
+    * - Time: O(?).
+    * - Space: O(?).
+    * @returns {any} The data of the second to last node or null if there is no
+    *    second to last node.
+    */
+    secondToLast() {
+        //your code here
+    }
+
+    /**
+    * Removes the node that has the matching given val as it's data.
+    * - Time: O(?).
+    * - Space: O(?).
+    * @param {any} val The value to compare to the node's data to find the
+    *    node to be removed.
+    * @returns {boolean} Indicates if a node was removed or not.
+    */
+    removeVal(val) {
+        //your code here
+    }
 }
+
 /******************************************************************* 
-Multiple test lists already constructed to test your methods on.
-Below commented code depends on insertAtBack method to be completed,
-after completing it, uncomment the code.
-*/
+ Multiple test lists already constructed to test your methods on.
+ Below commented code depends on insertAtBack method to be completed,
+ after completing it, uncomment the code.
+ */
 const emptyList = new SinglyLinkedList();
 
-const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
-const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
-const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
-const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
-const unorderedList = new SinglyLinkedList().insertAtBackMany([
--5, -10, 4, -3, 6, 1, -7, -2,
-]);
+let testList = new SinglyLinkedList();
+testList.insertAtBackMany([10, 8, 12, 5, 15]);
 
+//second to last test:
+// console.log(testList.secondToLast()) //should be 5
+
+//remove val test:
+// testList.removeVal(8);
+// testList.removeVal(15);
+// testList.removeVal(10);
+// console.log(testList.toArr()) // should be [12,15]
