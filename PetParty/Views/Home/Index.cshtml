@@ -25,13 +25,13 @@
     </form> *@
     <form asp-action="Process" asp-controller="Home" method="Post">
         <div class="mb-3">
-            <label asp-for="Name">Hard Coded Name</label>
+            <label asp-for="Name"></label>
             <input asp-for="Name">
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Species"></label>
-            <input asp-for="Species">
+            <select asp-for="Species" asp-items="@ViewBag.Options"></select>
             <span asp-validation-for="Species" class="text-danger"></span>
         </div>
         <div class="mb-3">
