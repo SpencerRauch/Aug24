@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "All The Pets";
+}
+
+@model List<Pet>
+
+@foreach (Pet p in Model)
+{
+    <p>@p.Name @p.Species</p>
+}
