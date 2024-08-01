@@ -237,7 +237,7 @@ class SinglyLinkedList {
         runner.next = null;
         return removedData;
     }
-    
+
     /**
     * Retrieves the data of the second to last node in this list.
     * - Time: O(?).
@@ -246,7 +246,17 @@ class SinglyLinkedList {
     *    second to last node.
     */
     secondToLast() {
-        //your code here
+        if (!this.head || !this.head.next) {
+            return null;
+        }
+
+        // There are at least 2 nodes since the above return hasn't happened.
+        let runner = this.head;
+
+        while (runner.next.next) {
+            runner = runner.next;
+        }
+        return runner.data;
     }
 
     /**
@@ -258,7 +268,25 @@ class SinglyLinkedList {
     * @returns {boolean} Indicates if a node was removed or not.
     */
     removeVal(val) {
-        //your code here
+        if (this.isEmpty()) {
+            return false;
+        }
+
+        if (this.head.data === val) {
+            this.removeHead();
+            return true;
+        }
+
+        let runner = this.head;
+
+        while (runner.next) {
+            if (runner.next.data === val) {
+                runner.next = runner.next.next;
+                return true;
+            }
+            runner = runner.next;
+        }
+        return false;
     }
 }
 
