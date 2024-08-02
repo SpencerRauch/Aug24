@@ -1,9 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = "_NoNav";
+    string? LastPet = Context.Session.GetString("LastPet");
+    bool Contributed = LastPet != null;
 }
 @model Pet
 <div class="text-center">
+    <h1>Register A Pet for the Party</h1>
     @* <form action="/process" method="post">
         <div class="mb-3">
             <label for="Name">Name</label>
@@ -45,5 +48,10 @@
             <span asp-validation-for="Age" class="text-danger"></span>
         </div>
         <button class="btn btn-primary">Submit</button>
+        <p>Last pet created: @(Contributed ? LastPet : "Please fill out the form and contribute!")</p>
+        @if(Contributed){
+            <a asp-action="AllPets" asp-controller="Home" class="btn btn-info">All Pets</a>
+
+        }
     </form>
 </div>

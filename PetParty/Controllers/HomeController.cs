@@ -62,18 +62,37 @@ public class HomeController : Controller
         Console.WriteLine($"{newPet.Name} is a {newPet.Age} years old {newPet.Species}");
         Console.WriteLine($"The pet {(newPet.Fun ? "is" : "isn't")} fun");
         FakePetDb.Add(newPet);
+        HttpContext.Session.SetString("LastPet",newPet.Name);
         // FakePetDb.SaveChanges(); <--- this is the only other line we'd need if this was a real db!
         return RedirectToAction("AllPets");
         
     }
 
     [HttpGet("allpets")]
-    public ViewResult AllPets()
+    public IActionResult AllPets()
     {
+        string? LastPet = HttpContext.Session.GetString("LastPet");
+        if (LastPet == null)
+        {
+            return RedirectToAction("Index");
+        }
         return View(FakePetDb);
     }
 
+    [HttpPost("pets/filter")]
+    public RedirectToActionResult SetFilter(int limit)
+    {
+        HttpContext.Session.SetInt32("Limit",limit);
+        return RedirectToAction("AllPets");
+    }
 
+    [HttpPost("pets/filter/clear")]
+    public RedirectToActionResult ClearFilter()
+    {
+        // HttpContext.Session.Clear();
+        HttpContext.Session.Remove("Limit");
+        return RedirectToAction("AllPets");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
