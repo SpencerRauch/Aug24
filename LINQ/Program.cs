@@ -22,7 +22,8 @@
     new VideoGame {Title = "Mario Kart 8", Studio = "Nintendo", Rating = "E", Price = 60.00, Platform = "Nintendo Switch, Wii U"},
     new VideoGame { Title = "Destiny 2", Studio ="Bungie", Rating = "T", Price = 0, Platform ="Varies"},
     new VideoGame { Title = "Ember Knights", Studio ="Doom Turtle", Rating = "E10+", Price = 19.99, Platform ="Nintendo Switch, PC"},
-    new VideoGame { Title = "Terraria", Studio ="Re-Logic", Rating = "E10+", Price = 9.99, Platform ="Various"} 
+    new VideoGame { Title = "Terraria", Studio ="Re-Logic", Rating = "E10+", Price = 9.99, Platform ="Various"},
+    new VideoGame { Title = "Horizon Zero Dawn", Studio ="Guerrilla Games", Rating = "T", Price = 19.99, Platform ="Playstation 4, Windows"} 
 
 };
 
