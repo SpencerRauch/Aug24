@@ -29,14 +29,40 @@
 
 
 // Getting a single result based on criteria
+// VideoGame EldenRing = Games.First( g => g.Title == "Elden Rin"); // first will throw an exception if there is no match!
+VideoGame? EldenRing = Games.FirstOrDefault(g => g.Title.Contains("Elden"));
+if (EldenRing == null)
+{
+    // Console.WriteLine("No exact Match");
+    
+}
+else
+{
+    // Console.WriteLine(EldenRing);
+}
+
 
 // Getting multiple results based on criteria
+IEnumerable<VideoGame> AffordableGames = Games.Where(g => g.Price <= 30.00);
+List<VideoGame> AffordableGamesList = Games.Where(g=>g.Price <= 30.00).ToList();
+// AffordableGamesList.ForEach(Console.WriteLine);
 
 // Getting select pieces of data
+List<string> AffordableGamesTitles = AffordableGamesList.Select(g => g.Title).ToList();
+List<string> AffordableGamesTitlesChained = Games.Where(g=>g.Price <= 30.00).Select(g => g.Title).ToList();
+
+// AffordableGamesTitles.ForEach(Console.WriteLine);
 
 // Ordering / Top 3
+List<VideoGame> SpendyBois = Games.OrderByDescending(g => g.Price).Take(3).ToList();
+// SpendyBois.ForEach(Console.WriteLine);
 
 // Logical testing
+bool FreeGames = Games.Any(g => g.Price == 0);
+bool FreeGamesInversed = Games.All(g=> g.Price == 0);
+
+// Console.WriteLine($"Free games? {FreeGames} {FreeGamesInversed}");
+
 
 Flavor Vanilla = new("Vanilla", false);
 Flavor Chocolate = new("Chocolate", false);
@@ -58,7 +84,12 @@ IceCreamStore Alexs = new("Alex Miller Goes Nuts",new(){RockyRoad,Spumoni,Peanut
 List<IceCreamStore> StoreDirectory = new(){Alices,Fionas,Carls,Bobs,Alexs};
 
 // nested queries 
+// List<IceCreamStore> NutFreeStores = StoreDirectory.Where( s => s.AvailableFlavors.All(f => !f.ContainsNuts)).ToList();
+List<IceCreamStore> NutFreeStores = StoreDirectory.Where( s => !s.AvailableFlavors.Any(f => f.ContainsNuts)).ToList();
+// NutFreeStores.ForEach(Console.WriteLine);
 
+List<IceCreamStore> StoresHaveCookieDough = StoreDirectory.Where( s=> s.AvailableFlavors.Any( f=> f.Name == "Cookie Dough")).ToList();
+StoresHaveCookieDough.ForEach(Console.WriteLine);
 
 
 
