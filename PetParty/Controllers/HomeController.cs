@@ -72,11 +72,12 @@ public class HomeController : Controller
     public IActionResult AllPets()
     {
         string? LastPet = HttpContext.Session.GetString("LastPet");
+        int? Limit = HttpContext.Session.GetInt32("Limit");
         if (LastPet == null)
         {
             return RedirectToAction("Index");
         }
-        return View(FakePetDb);
+        return View(FakePetDb.Where(p => p.Age <= Limit));
     }
 
     [HttpPost("pets/filter")]
