@@ -177,8 +177,8 @@ class BinarySearchTree {
         if (startNode == null) return null;
         return this.max(startNode) - this.min(startNode);
     }
-    
-    //https://www.cs.usfca.edu/~galles/visualization/BST.html
+
+    // https://www.cs.usfca.edu/~galles/visualization/BST.html
     /**
      * Inserts a new node with the given newVal in the right place to preserver
      * the order of this tree.
