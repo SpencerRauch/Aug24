@@ -180,7 +180,7 @@ class BinarySearchTree {
 
     // https://www.cs.usfca.edu/~galles/visualization/BST.html
     /**
-     * Inserts a new node with the given newVal in the right place to preserver
+     * Inserts a new node with the given newVal in the right place to preserve
      * the order of this tree.
      * - Time: O(?).
      * - Space: O(?).
@@ -192,7 +192,7 @@ class BinarySearchTree {
     }
 
     /**
-     * Inserts a new node with the given newVal in the right place to preserver
+     * Inserts a new node with the given newVal in the right place to preserve
      * the order of this tree.
      * - Time: O(?).
      * - Space: O(?).
