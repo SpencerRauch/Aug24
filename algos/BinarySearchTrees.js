@@ -261,6 +261,12 @@ class BinarySearchTree {
      */
     toArrInorder(node = this.root, vals = []) {
         //Your code here
+        if(node){
+            this.toArrInorder(node.left, vals)
+            vals.push(node.data)
+            this.toArrInorder(node.right, vals)
+        }
+        return vals
     }
 
     /**
@@ -274,6 +280,12 @@ class BinarySearchTree {
      */
     toArrPreorder(node = this.root, vals = []) {
         //Your code here
+        if(node){
+            vals.push(node.data)
+            this.toArrPreorder(node.left, vals)
+            this.toArrPreorder(node.right, vals)
+        }
+        return vals
     }
 
 
@@ -288,6 +300,12 @@ class BinarySearchTree {
      */
     toArrPostorder(node = this.root, vals = []) {
         // Your code here 
+        if(node){
+            this.toArrPostorder(node.left, vals)
+            this.toArrPostorder(node.right, vals)
+            vals.push(node.data)
+        }
+        return vals
     }
 
 }
