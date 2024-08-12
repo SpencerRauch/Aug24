@@ -41,7 +41,7 @@ class MinHeap {
      * @returns {?number} Null if empty.
      */
     top() { 
-        //your code here -- should be a one liner
+        //your code here 
     }
 
     /**
