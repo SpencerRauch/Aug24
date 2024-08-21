@@ -265,3 +265,37 @@ nonpalin.seed([1,2,3,4,5])
 
 console.log(palinQue.isPalindrome())
 console.log(nonpalin.isPalindrome())
+
+function isPalindrome(q) {
+    if(q.len() == 0) return false;
+    const myStack = new Stack();
+
+    for(let i = 0; i < q.len()/2; i++) {
+        myStack.push(q.front());
+        q.enqueue(q.dequeue());
+    }
+
+    let checkEqual = true;
+    if(q.len() % 2 == 0) {
+        for(let i = q.len()/2; i < q.len(); i++) {
+            if(q.front() != myStack.peek()) {
+                checkEqual = false;
+            }
+            q.enqueue(q.dequeue());
+            myStack.pop();
+        }
+    }
+    else {
+        myStack.pop();
+        for(let i = q.len()/2 + 1; i < q.len(); i++) {
+            if(q.front() != myStack.peek()) {
+                checkEqual = false;
+            }
+            q.enqueue(q.dequeue());
+            myStack.pop();
+        }
+    }
+    return checkEqual;
+}
+// console.log(isPalindrome(palinQue))
+// console.log(isPalindrome(nonpalin))
