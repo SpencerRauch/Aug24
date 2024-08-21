@@ -1,3 +1,4 @@
+const Stack = require("./Stacks")
 /**
  * Class to represent a queue using an array to store the queued items.
  * Follows a FIFO (First In First Out) order where new items are added to the
@@ -182,6 +183,32 @@ class LinkedListQueue {
         return vals;
     }
 
+    isPalindrome() {
+        let isPalin = true;
+        const stack = new Stack(),
+        len = this.len();
+
+        for (let i = 0; i < len; i++) {
+            let dequeued = this.dequeue();
+            stack.push(dequeued);
+            // add it back so the queue items and order is restored at the end
+            this.enqueue(dequeued);
+        }
+
+        for (let i = 0; i < len; i++) {
+            let dequeued = this.dequeue();
+            let popped = stack.pop();
+
+            if (popped !== dequeued) {
+                isPalin = false;
+            }
+
+            // add it back so the queue items and order is restored at the end
+            this.enqueue(dequeued);
+        }
+        return isPalin;
+    }
+
 }
 
 //Returns boolean whether queues are same length with same elements
@@ -190,7 +217,26 @@ class LinkedListQueue {
 // ----> The queues should be in the same order when you're done! <----
 
 function CompareQueues(qOne, qTwo) {
-    //Your code here
+    if (qOne.len() != qTwo.len()) {
+        return false;
+    }
+    let count = 0;
+    let isEqual = true;
+    const len = qOne.len();
+
+    while (count < len) {
+        const dequeuedOne = qOne.dequeue();
+        const dequeuedTwo = qTwo.dequeue();
+
+        if (dequeuedOne !== dequeuedTwo) {
+            isEqual = false;
+        }
+
+        qOne.enqueue(dequeuedOne);
+        qTwo.enqueue(dequeuedTwo);
+        count++;
+    }
+    return isEqual;
 }
 
 
@@ -199,14 +245,23 @@ arrayQueueOne.items = [1, 2, 9, 3, 3, 6];
 // arrayQueueOne.print();
 
 const arrayQueueTwo = new Queue();
-arrayQueueTwo.items = [7,7,7,7];
+arrayQueueTwo.items = [7, 7, 7, 7];
 // arrayQueueTwo.print();
 
 const listQueue = new LinkedListQueue();
 listQueue.seed([1, 2, 9, 3, 3, 6]);
 listQueue.print();
 
-console.log(CompareQueues(arrayQueueOne,listQueue)) // true
+console.log(CompareQueues(arrayQueueOne, listQueue)); // true
 arrayQueueOne.print();
-console.log(CompareQueues(arrayQueueTwo, listQueue)) // false
+console.log(CompareQueues(arrayQueueTwo, listQueue)); // false
 arrayQueueTwo.print();
+
+
+const palinQue = new LinkedListQueue()
+palinQue.seed([1,2,2,1]);
+const nonpalin = new LinkedListQueue()
+nonpalin.seed([1,2,3,4,5])
+
+console.log(palinQue.isPalindrome())
+console.log(nonpalin.isPalindrome())

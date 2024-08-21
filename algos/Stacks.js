@@ -131,3 +131,4 @@ class LinkedListStack {
         return vals;
     }
 }
+module.exports = Stack
