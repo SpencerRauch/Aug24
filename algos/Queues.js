@@ -299,3 +299,5 @@ function isPalindrome(q) {
 }
 // console.log(isPalindrome(palinQue))
 // console.log(isPalindrome(nonpalin))
+
+module.exports = Queue;
