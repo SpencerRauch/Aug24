@@ -248,23 +248,23 @@ const arrayQueueTwo = new Queue();
 arrayQueueTwo.items = [7, 7, 7, 7];
 // arrayQueueTwo.print();
 
-const listQueue = new LinkedListQueue();
-listQueue.seed([1, 2, 9, 3, 3, 6]);
-listQueue.print();
+// const listQueue = new LinkedListQueue();
+// listQueue.seed([1, 2, 9, 3, 3, 6]);
+// listQueue.print();
 
-console.log(CompareQueues(arrayQueueOne, listQueue)); // true
-arrayQueueOne.print();
-console.log(CompareQueues(arrayQueueTwo, listQueue)); // false
-arrayQueueTwo.print();
+// console.log(CompareQueues(arrayQueueOne, listQueue)); // true
+// arrayQueueOne.print();
+// console.log(CompareQueues(arrayQueueTwo, listQueue)); // false
+// arrayQueueTwo.print();
 
 
-const palinQue = new LinkedListQueue()
-palinQue.seed([1,2,2,1]);
-const nonpalin = new LinkedListQueue()
-nonpalin.seed([1,2,3,4,5])
+// const palinQue = new LinkedListQueue()
+// palinQue.seed([1,2,2,1]);
+// const nonpalin = new LinkedListQueue()
+// nonpalin.seed([1,2,3,4,5])
 
-console.log(palinQue.isPalindrome())
-console.log(nonpalin.isPalindrome())
+// console.log(palinQue.isPalindrome())
+// console.log(nonpalin.isPalindrome())
 
 function isPalindrome(q) {
     if(q.len() == 0) return false;
