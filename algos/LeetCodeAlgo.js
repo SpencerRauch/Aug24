@@ -69,7 +69,7 @@ var getIntersectionNode = function(headA, headB) {
 
 
 
-var getIntersectionNodeMap = function(headA, headB) {
+var getIntersectionNode = function(headA, headB) {
     const AMap = new Map();
     while(headA)
     {
@@ -83,4 +83,13 @@ var getIntersectionNodeMap = function(headA, headB) {
         headB = headB.next
     }
     return null
+};
+
+var getIntersectionNode = function(headA, headB) {
+    let a = headA, b = headB
+    while (a !== b) {
+        a = !a ? headB : a.next
+        b = !b ? headA : b.next
+    }
+    return a
 };
