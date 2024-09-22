@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WatchList")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+190e07a16730860d8dcf9ed77b6c33530b76ea58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7173d1df47bfbf974f10f286ddec953e1699c28")]
 [assembly: System.Reflection.AssemblyProductAttribute("WatchList")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WatchList")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
